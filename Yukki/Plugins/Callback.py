@@ -126,8 +126,7 @@ async def admin_risghts(_, CallbackQuery):
             return
         else:
             videoid = Queues.get(chat_id)["file"]
-            got_queue = get_queue.get(CallbackQuery.message.chat.id)
-            if got_queue:
+            if got_queue := get_queue.get(CallbackQuery.message.chat.id):
                 got_queue.pop(0)
             finxx = f"{videoid[0]}{videoid[1]}{videoid[2]}"
             aud = 0
